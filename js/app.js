@@ -107,8 +107,8 @@ for (let k = 0; k <hours.length; k++) {
   totalhours=0;
   for (let i = 0; i < locations.length; i++) {
     totalhours=totalhours+locations[i].cookiesNum[k];
-    totalOfTotal=totalOfTotal+totalhours;
   }
+  totalOfTotal=totalOfTotal+totalhours;
   hoursTotal.push(totalhours);
 }
 
