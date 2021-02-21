@@ -85,11 +85,16 @@ ul p{
     text-decoration: underline;
 }
 table{
-    font-family:  Arial, Helvetica, sans-serif
+    font-family:  Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 50px;
+    margin-left: 80px;
+    color: teal;
+    font-size: large;
 }
 .prg{
     font-size: xxx-large;
-    color: rgb(16, 83, 66);
+    color: rgb(101, 158, 144);
     text-align: center;
     position: relative;
     bottom: 300px;
@@ -124,4 +129,17 @@ footer{
     position: relative;
     top: 50px;
     left: 30px;
+}
+th{
+    background-color:#137e78 ;
+    color: white;
+    font-weight:500;  
+}
+#newStandForm{
+    background-color:#75cfb8 ;
+    color: rgb(11, 70, 55);
+    font-weight: 600;
+    font-size: larger;
+    line-height: 40px;
+    margin: 80px;
 }
