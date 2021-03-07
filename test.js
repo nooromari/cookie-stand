@@ -31,14 +31,15 @@ document.getElementById('animalF').addEventListener('submit',animalForm);
 function animalForm(event) {
   event.preventDefault();
   //   console.log(min.value);
-  new Animal(Aname.value,max.value,min.value);
+  new Animal(Aname.value,parseInt(max.value),parseInt(min.value));
   //   for(let i = 0 ; i<tableEl.rows.length ;){
-  saveObj();
   while(tableEl.rows.length){
     console.log(tableEl.rows.length);
     tableEl.deleteRow(0);
   }
-  tableRender();
+  saveObj();
+  getObj();
+  // tableRender();
 }
 
 function tableRender(){
@@ -69,4 +70,15 @@ tableRender();
 function saveObj() {
   let save = JSON.stringify(objectArr);
   let allAnimals =localStorage.setItem('allAnimals',save);
+}
+
+function getObj() {
+
+  let animalObjects=JSON.parse(localStorage.allAnimals);
+
+  for (let i = 0; i < animalObjects.length; i++) {
+    objectArr[i]= new Animal (animalObjects[i].name,animalObjects[i].maxNum,animalObjects[i].minNum);
+    // console.log(newAnimal[i]);
+  }
+  tableRender();
 }
