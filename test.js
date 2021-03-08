@@ -23,7 +23,7 @@ Animal.prototype.ageRandom=function(){
 new Animal('dog',10,5);
 new Animal('cat',7,3);
 new Animal('rabbit',14,8);
-console.log(objectArr);
+// console.log(objectArr);
 
 
 document.getElementById('animalF').addEventListener('submit',animalForm);
@@ -75,10 +75,11 @@ function saveObj() {
 function getObj() {
 
   let animalObjects=JSON.parse(localStorage.allAnimals);
+  objectArr=animalObjects;
 
-  for (let i = 0; i < animalObjects.length; i++) {
-    objectArr[i]= new Animal (animalObjects[i].name,animalObjects[i].maxNum,animalObjects[i].minNum);
-    // console.log(newAnimal[i]);
-  }
+  // for (let i = 0; i < animalObjects.length; i++) {
+  //   objectArr[i]= new Animal (animalObjects[i].name,animalObjects[i].maxNum,animalObjects[i].minNum);
+  //   // console.log(newAnimal[i]);
+  // }
   tableRender();
 }
