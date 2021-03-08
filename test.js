@@ -32,14 +32,15 @@ function animalForm(event) {
   event.preventDefault();
   //   console.log(min.value);
   new Animal(Aname.value,parseInt(max.value),parseInt(min.value));
-  //   for(let i = 0 ; i<tableEl.rows.length ;){
+  // for(let i = 0 ; i<tableEl.rows.length;){
   while(tableEl.rows.length){
     console.log(tableEl.rows.length);
     tableEl.deleteRow(0);
   }
   saveObj();
-  getObj();
-  // tableRender();
+  // getObj();
+  tableRender();
+  document.getElementById('animalF').removeEventListener('submit',animalForm);
 }
 
 function tableRender(){
@@ -52,7 +53,7 @@ function tableRender(){
   let thEl1=document.createElement('th');
   trEl.appendChild(thEl1);
   thEl1.textContent='Age';
-
+  // console.log(objectArr,'render');
   for (let i = 0; i < objectArr.length; i++) {
     let trEl=document.createElement('tr');
     tableEl.appendChild(trEl);
@@ -65,6 +66,7 @@ function tableRender(){
     tdEl1.textContent=objectArr[i].age;
   }
 }
+getObj(); //call the get function before ther render
 tableRender();
 
 function saveObj() {
@@ -73,13 +75,15 @@ function saveObj() {
 }
 
 function getObj() {
-
-  let animalObjects=JSON.parse(localStorage.allAnimals);
-  objectArr=animalObjects;
-
+  let localValue=localStorage.getItem('allAnimals');
+  let animalObjects=JSON.parse(localValue);
+  // console.log(animalObjects);
+  if(animalObjects){
+    objectArr=animalObjects;
+  }
   // for (let i = 0; i < animalObjects.length; i++) {
   //   objectArr[i]= new Animal (animalObjects[i].name,animalObjects[i].maxNum,animalObjects[i].minNum);
   //   // console.log(newAnimal[i]);
   // }
-  tableRender();
 }
+
